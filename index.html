@@ -5,13 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AimTest</title>
 
+    <!--CSS-->
+
+    <!--Fuente-->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap" rel="stylesheet">
+
+    <!--Estilos-->
+
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/index-res.css">
+
+    <!--CDN JQUERY-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
 
 </head>
 <body>
-    <main class="column all-center">
-        <h1>AIM TEST</h1>
+
+    <main class="column all-center gap-2">
+        <h1 class="fs-ultra-large">AIM TEST</h1>
+        <button id="btn-start" class="btn btn-fill" onclick="">START</button>
+        <div class="row all-center gap-2 reverse-wrap">
+            <button class="btn btn-outline row all-center gap-025" onclick="mostrarModalRanking()"><img class="icon" src="./image/ranking.png" alt="ranking">RANKING</button>
+            <button class="btn btn-outline" onclick="">MODE: EASY</button>
+        </div>
     </main>
+
+    <div id="modalRanking" class="column all-center">
+        <div id="div-modalRanking" class="column a-center">
+            <button class="btn-salir" onclick="mostrarModalRanking()">X</button>
+            <h2 class="row all-center gap-025 fs-ultra-large"><img class="large-icon" src="./image/ranking-large.png" alt="ranking">RANKING</h2>
+        </div>
+    </div>
+
+
+<script src="js/index.js"></script>    
 </body>
 </html>

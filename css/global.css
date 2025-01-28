@@ -2,10 +2,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Cherry Bomb One", serif;
+    cursor: url('../image/small.png') 10 10, auto;
 }
 
 body{
-    cursor: cell;
+    background-color: antiquewhite;
+    color: darkslategrey;
 }
 
 .row{
@@ -16,6 +19,14 @@ body{
 .column{
     display: flex;
     flex-direction: column;
+}
+
+.wrap{
+    flex-wrap: wrap;
+}
+
+.reverse-wrap{
+    flex-wrap: wrap-reverse;
 }
 
 .a-center{
@@ -31,10 +42,59 @@ body{
     justify-content: center;
 }
 
+.gap-025{
+    gap: .25rem;
+}
+
+.gap-05{
+    gap: .5rem;
+}
+
 .gap-1{
     gap: 1rem;
 }
 
 .gap-2{
     gap: 2rem;
+}
+
+.fs-ultra-large{
+    font-size: xxx-large;
+    text-shadow: 5px 5px rgba(47, 79, 79, 0.149);
+    text-align: center;
+}
+
+.btn{
+    padding: .5rem .75rem .5rem .75rem;
+    border: none;
+    border-radius: 10px;
+    font-size: large;
+    transition: transform 0.3s ease;
+}
+
+.btn:hover{
+    transform: translateY(-5px);
+}
+
+.btn-fill{
+    background-color: darkslategrey;
+    color: whitesmoke;
+    box-shadow: 2px 3px rgba(47, 79, 79, 0.149);
+}
+
+.btn-outline{
+    background-color: rgba(47, 79, 79, 0.149);
+    color: darkslategrey;
+    border: 3px solid rgba(47, 79, 79, 0.409);
+    box-shadow: 2px 3px rgba(47, 79, 79, 0.65);
+}
+
+.icon{
+    width: 20px;
+    height: 20px;
+}
+
+.large-icon{
+    width: 50px;
+    height: 50px;
 }

@@ -1,0 +1,14 @@
+@media screen and (max-width: 600px){
+    #div-modalRanking{
+        width: 100%;
+        min-width: 0;
+        height: 100vh;
+        border: none;
+        border-radius: 0;
+        padding-top: 3.5rem;
+    }
+
+    .btn-salir{
+        font-size: 25px;
+    }
+}
