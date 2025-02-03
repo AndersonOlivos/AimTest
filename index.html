@@ -17,6 +17,7 @@
 
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/juego.css">
     <link rel="stylesheet" href="css/index-res.css">
 
     <!--CDN JQUERY-->
@@ -28,22 +29,69 @@
 <body>
 
     <main class="column all-center gap-2">
+
+        <!--MENU-->
+
         <h1 class="fs-ultra-large">AIM TEST</h1>
-        <button id="btn-start" class="btn btn-fill" onclick="">START</button>
+        <button id="btn-start" class="btn btn-fill" onclick="empezarJuego('#span-mode')">START</button>
         <div class="row all-center gap-2 reverse-wrap">
-            <button class="btn btn-outline row all-center gap-025" onclick="mostrarModalRanking()"><img class="icon" src="./image/ranking.png" alt="ranking">RANKING</button>
-            <button class="btn btn-outline" onclick="">MODE: EASY</button>
+            <button class="btn btn-outline row all-center gap-025" onclick="mostrarModal('#modalRanking')"><img class="icon" src="./image/ranking.png" alt="ranking">RANKING</button>
+            <button id="btn-mode" class="btn btn-outline" onclick="cambiarModoDificultad()">MODE: <span id="span-mode">EASY</span></button>
         </div>
+
+        <button id="btn-ajustes" class="" onclick="mostrarModal('#modalAjustes')"><img class="img-ajustes-cuenta" src="./image/ajustes.png" alt=""></button>
+        <button id="btn-cuenta" onclick="mostrarModal('#modalCuenta')"><img class="img-ajustes-cuenta" src="./image/cuenta.png" alt=""></button>
+
+        <!--FONDO DE CIRCULOS-->
+
+        <div id="background-divs">
+            <div id="back1" class="back-div"></div>
+            <div id="back2" class="back-div"></div>
+            <div id="back3" class="back-div"></div>
+            <div id="back4" class="back-div"></div>
+        </div>
+
+        
+
     </main>
 
-    <div id="modalRanking" class="column all-center">
-        <div id="div-modalRanking" class="column a-center">
-            <button class="btn-salir" onclick="mostrarModalRanking()">X</button>
-            <h2 class="row all-center gap-025 fs-ultra-large"><img class="large-icon" src="./image/ranking-large.png" alt="ranking">RANKING</h2>
+
+    <!--MODAL RANKING-->
+
+    <div id="modalRanking" class="modal column all-center">
+        <div class="column a-center div-modal">
+            <button class="btn-salir" onclick="mostrarModal('#modalRanking')">X</button>
+            <h2 class="row all-center gap-025 fs-x-large"><img class="large-icon" src="./image/ranking-large.png" alt="ranking">RANKING</h2>
         </div>
     </div>
 
+    <!--MODAL AJUSTES-->
+    
+    <div id="modalAjustes" class="modal column all-center">
+        <div class="column a-center div-modal">
+            <button class="btn-salir" onclick="mostrarModal('#modalAjustes')">X</button>
+            <h2 class="row all-center gap-025 fs-x-large"><img class="large-icon" src="./image/ajustes.png" alt="ranking">SETTINGS</h2>
+        </div>
+    </div>
 
-<script src="js/index.js"></script>    
+    <!--MODAL CUENTA-->
+
+    <div id="modalCuenta" class="modal column all-center">
+        <div class="column a-center div-modal">
+            <button class="btn-salir" onclick="mostrarModal('#modalCuenta')">X</button>
+            <h2 class="row all-center gap-025 fs-x-large"><img class="large-icon" src="./image/cuenta.png" alt="ranking">ACCOUNT</h2>
+        </div>
+    </div>
+
+    <!--JUEGO-->
+
+    <div id="juego">
+        <p id="p-cuenta-atras">3</p>
+        <p id="p-tiempo">10</p>
+    </div>
+
+
+<script src="js/index.js"></script>
+<script src="js/juego.js"></script>
 </body>
 </html>

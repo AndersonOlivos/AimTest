@@ -58,6 +58,12 @@ body{
     gap: 2rem;
 }
 
+.fs-x-large{
+    font-size: xx-large;
+    text-shadow: 5px 5px rgba(47, 79, 79, 0.149);
+    text-align: center;
+}
+
 .fs-ultra-large{
     font-size: xxx-large;
     text-shadow: 5px 5px rgba(47, 79, 79, 0.149);
@@ -73,7 +79,7 @@ body{
 }
 
 .btn:hover{
-    transform: translateY(-5px);
+    transform: translateY(-4px);
 }
 
 .btn-fill{
@@ -95,6 +101,6 @@ body{
 }
 
 .large-icon{
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
 }

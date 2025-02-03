@@ -1,0 +1,18 @@
+#juego{
+    display: none;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+}
+
+#p-cuenta-atras{
+    font-size: 10rem;
+    color: lightcoral;
+}
+
+#p-tiempo{
+    display: none;
+    margin-top: 1rem;
+    font-size: medium;
+    color: lightcoral;
+}
