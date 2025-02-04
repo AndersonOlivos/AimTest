@@ -29,7 +29,6 @@
 
 </head>
 <body>
-
     <main class="column all-center gap-2">
 
         <!--MENU-->
@@ -114,7 +113,7 @@
 
                 <!-- INICIAR SESIÓN -->
 
-                <h2 class="text-center text-lightcoral">CREATE AN ACCOUNT</h2>
+                <h2 class="text-lightcoral">CREATE AN ACCOUNT</h2>
                 <div class="column all-center gap-2">
                     <div class="column all-center gap-05">
                         <p>MAIL</p>

@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Cherry Bomb One", serif;
-    cursor: url('../image/small.png') 10 10, auto;
+    cursor: url('../image/mira.png') 8 9, auto;
 }
 
 body{
@@ -103,4 +103,12 @@ body{
 .large-icon{
     width: 40px;
     height: 40px;
+}
+
+.text-lightcoral{
+    color: lightcoral;
+}
+
+.text-center{
+    text-align: center;
 }

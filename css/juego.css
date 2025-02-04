@@ -1,8 +1,12 @@
 #juego{
+    position: relative;
     display: none;
     justify-content: center;
-    width: 100%;
-    height: 100vh;
+    width: 100vw;
+    height: 100svh;
+    max-width: 100vw;
+    max-height: 100svh;
+    overflow: hidden;
 }
 
 #p-cuenta-atras{
@@ -15,4 +19,22 @@
     margin-top: 1rem;
     font-size: medium;
     color: lightcoral;
+}
+
+.circulo{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: darkslategrey;
+    border-radius: 50%;
+}
+
+#puntuacion-partida{
+    font-size: 6rem;
+    color: lightcoral;
+}
+
+#puntuacion-record{
+    font-size: xx-large;
+    margin-bottom: 1.5rem;
 }
