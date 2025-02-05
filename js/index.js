@@ -1,5 +1,5 @@
 estadoBotonModo();
-
+actualizarRanking('#btn-ranking-easy');
 /*
 *
 MOSTRAR Y OCULTAR EL MODAL DEL RANKING
@@ -57,6 +57,12 @@ function estadoBotonModo(){
         botonModo.css("background-color","#8cdf8ca6");
     }
 }
+
+/*
+*
+REGISTRAR LA CUENTA DE UN USUARIO
+*
+*/
 
 function crearCuenta(mail, username, pass1, pass2) {
     const correo = $(mail).val().trim();
@@ -134,4 +140,101 @@ function crearCuenta(mail, username, pass1, pass2) {
 
         });
     });
+}
+
+/*
+*
+INICIAR SESIÓN
+*
+*/
+
+function iniciarSesion(){
+    
+    const username = $('#inp-login-usuario');
+    const contrasena = $('#inp-login-contrasena');
+    const error = $('#p-error-login');
+
+    if(username.val().trim() == '' && contrasena.val().trim() == ''){
+        error.text("Fill out all fields, please.");
+        return
+    }
+
+    $.ajax({
+        method: "POST",
+        url: "./php/login/iniciar_sesion.php",
+        data: { 
+            username: username.val().trim(), 
+            password: contrasena.val().trim()
+        }
+    }).done(function(data) {
+        if (data === 'logeado') {
+            location.reload();
+        } else {
+            error.text("Username/password incorrect. Please try again.");
+        }
+    });
+
+}
+
+/*
+*
+CERRAR SESIÓN
+*
+*/
+
+function cerrarSesion(){
+    $.ajax({
+        method: "GET",
+        url: "./php/login/cerrar_sesion.php",
+    }).done(function() {
+        location.reload();
+    });
+}
+
+/*
+*
+ACTUALIZAR LOS RANKINGS
+*
+*/
+
+function actualizarRanking(boton){
+
+    const modo = $(boton);
+
+    const id_modo = modo.attr('id');
+
+    $(".btn-ranking-modo").css("background-color", "#2f4f4f26");
+
+    if (id_modo === "btn-ranking-easy") {
+
+        modo.css("background-color", "#8cdf8ca6");
+        actualizar('easy');
+        
+    } else if (id_modo === "btn-ranking-medium") {
+        modo.css("background-color", "#ffd07a");
+        actualizar('medium');
+
+    } else if (id_modo === "btn-ranking-hard") {
+        modo.css("background-color", "lightcoral");
+        actualizar('hard');
+    }
+
+    function actualizar(modo){
+        $.ajax({
+            method: "POST",
+            url: "./php/ranking/ranking.php",
+            data: { modo : modo },
+            dataType: "json"
+        }).done(function(data){
+
+            let lista = $("#lista-ranking");
+
+            lista.empty();
+
+            data.forEach((item, index) => {
+                lista.append(`<li>${item.username} - ${item.record} pts.</li>`);
+            });
+        })
+    }
+
 }

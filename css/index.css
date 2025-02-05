@@ -119,23 +119,23 @@ main{
 /* CIRCULO SUPERIOR DERECHA */
 
 #back2{
-    top: 160px;
-    right: 10px;   
-    filter: blur(4px);
+    top: 80px;
+    right: 5px;   
+    filter: blur(3px);
     animation: flotar2 2s infinite ease-in-out;
-    width: 80px;
-    height: 80px;
+    width: 65px;
+    height: 65px;
 }
 
 /* CIRCULO INFERIOR IZQUIERDA */
 
 #back3{
-    bottom: 100px;
+    bottom: 80px;
     left: 20px;
-    filter: blur(4px);
+    filter: blur(3px);
     animation: flotar2 4s infinite ease-in-out;
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
 }
 
 /* CIRCULO INFERIOR DERECHA */
@@ -161,6 +161,8 @@ main{
     100% { transform: translateY(0px); }
 }
 
+/* INPUTS FORMULARIOS */
+
 .inp-form{
     border: 4px solid #2f4f4f;
     border-radius: 10px;
@@ -168,4 +170,23 @@ main{
     color: whitesmoke;
     background-color: #2f4f4f82;
     letter-spacing: 4px;
+}
+
+/* RANKING */
+
+#lista-ranking{
+    font-size: x-large;
+}
+
+#lista-ranking li::marker{
+    color: lightcoral;
+}
+
+/* LOGIN Y DATOS JUGADOR */
+
+#account-data{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 }

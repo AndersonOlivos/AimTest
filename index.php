@@ -1,3 +1,10 @@
+<?php
+
+    session_set_cookie_params(5000);
+    session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -29,6 +36,7 @@
 
 </head>
 <body>
+
     <main class="column all-center gap-2">
 
         <!--MENU-->
@@ -60,9 +68,18 @@
     <!--MODAL RANKING-->
 
     <div id="modalRanking" class="modal column all-center">
-        <div class="column a-center div-modal">
+        <div class="column a-center div-modal gap-2">
             <button class="btn-salir" onclick="mostrarModal('#modalRanking')">X</button>
             <h2 class="row all-center gap-025 fs-x-large"><img class="large-icon" src="./image/ranking-large.png" alt="ranking">RANKING</h2>
+            <div class="row a-center gap-1">
+                <button id="btn-ranking-easy" class="btn btn-outline btn-ranking-modo" onclick="actualizarRanking('#btn-ranking-easy')">EASY</button>
+                <button id="btn-ranking-medium" class="btn btn-outline btn-ranking-modo" onclick="actualizarRanking('#btn-ranking-medium')">MEDIUM</button>
+                <button id="btn-ranking-hard" class="btn btn-outline btn-ranking-modo" onclick="actualizarRanking('#btn-ranking-hard')">HARD</button>
+            </div>
+            <div class="column a-center gap-1">
+                <ol id="lista-ranking">
+                </ol>
+            </div>
         </div>
     </div>
 
@@ -81,27 +98,42 @@
         <div class="column all-center gap-2 div-modal">
             <button class="btn-salir" onclick="mostrarModal('#modalCuenta')">X</button>
             <h2 class="row all-center gap-025 fs-x-large"><img class="large-icon" src="./image/cuenta.png" alt="ranking">ACCOUNT</h2>
-            <div class="column a-center gap-2">
+            
+            <?php
+            
+            if(!$_SESSION['username']){
+                echo "<div id='div-login' class='column a-center gap-2'>
 
                 <!-- INICIAR SESIÓN -->
 
-                <h2 class="text-lightcoral">LOGIN IN</h2>
-                <div class="column all-center gap-2">
-                    <div class="column all-center gap-05">
+                <h2 class='text-lightcoral'>LOGIN IN</h2>
+                <div class='column all-center gap-2'>
+                    <div class='column all-center gap-05'>
                         <p>USERNAME</p>
-                        <input class="inp-form" type="text" id="inp-usuario">
+                        <input class='inp-form' type='text' id='inp-login-usuario'>
                     </div>
-                    <div class="column all-center gap-05">
+                    <div class='column all-center gap-05'>
                         <p>PASSWORD</p>
-                        <input class="inp-form" type="password" id="inp-contrasena">
+                        <input class='inp-form' type='password' id='inp-login-contrasena'>
                     </div>
-                    <p class="text-lightcoral" id="p-error-login"></p>
+                    <p class='text-lightcoral' id='p-error-login'></p>
                     <div>
-                        <button class="btn btn-outline row all-center gap-025">ENTER</button>
+                        <button class='btn btn-outline row all-center gap-025' onclick = \"iniciarSesion()\">ENTER</button>
                     </div>
-                    <p class="text-center">Don't you have an account? <span><a class="text-lightcoral" onclick="mostrarModal('#modalRegistro')">Sign in now!</a></span></p>
+                    <p class='text-center'>Don't you have an account? <span><a class='text-lightcoral' onclick=\"mostrarModal('#modalRegistro')\">Sign in now!</a></span></p>
                 </div>
-            </div>
+            </div>";
+            } else {
+                echo "<div id='account-data'>
+                    <div class='row gap-1'>
+                        <p>USERNAME: </p>
+                        <p class='text-lightcoral' id='username'>".$_SESSION['username']."</p>
+                        <button class='btn btn-outline row all-center gap-025' onclick = \"cerrarSesion()\">LOGOUT</button>
+                    </div>
+                </div>";
+            }
+
+            ?>
         </div>
     </div>
 
@@ -113,7 +145,7 @@
 
                 <!-- INICIAR SESIÓN -->
 
-                <h2 class="text-lightcoral">CREATE AN ACCOUNT</h2>
+                <h2 class="text-center text-lightcoral">CREATE AN ACCOUNT</h2>
                 <div class="column all-center gap-2">
                     <div class="column all-center gap-05">
                         <p>MAIL</p>
