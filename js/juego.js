@@ -10,6 +10,8 @@ function empezarJuego(spanModo){
     const modo = $(spanModo).text().toLowerCase();
 
     if(modo == 'easy'){
+        $('main').hide();
+        $('#juego').css("display", "flex").show();
         juegoEasy();
     } else if(modo == 'medium'){
         juegoMedium();
@@ -17,8 +19,7 @@ function empezarJuego(spanModo){
         juegoHard();
     }
 
-    $('main').hide();
-    $('#juego').css("display", "flex").show();
+    
 
 }
 
@@ -122,6 +123,20 @@ function juegoEasy(){
 
                 juego.hide();
 
+                /* ACTUALIZAR EL RECORD SI TIENE UNA SESION CREADA */
+
+                $.ajax({
+                    method: "POST",
+                    url: "./php/juego/actualizar_record.php",
+                    data: { record : localStorage.getItem("recordEasy"), modo: "easy" }
+                }).done(function(data){
+                    if(data != "nologin"){
+                        console.log(data);
+                        localStorage.setItem("recordEasy", data);
+                        $("#puntuacion-record").text(localStorage.getItem("recordEasy"));
+                    }
+                })
+
             }
         }
 
@@ -160,11 +175,11 @@ function juegoEasy(){
 }
 
 function juegoMedium(){
-    alert("JUEGO MEDIO");
+    alert("Oops... This mode is not available yet, sorry!");
 }
 
 function juegoHard(){
-    alert("JUEGO DIFICIL");
+    alert("Oops... This mode is not available yet, sorry!");
 }
 
 function volverAMenu(){

@@ -9,7 +9,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <title>AimTest</title>
 
     <link rel="shortcut icon" href="./image/favicon.png" type="image/x-icon">
@@ -124,13 +124,25 @@
                 </div>
             </div>";
             } else {
-                echo "<div id='account-data'>
+                echo "<div id='account-data' class='column gap-1'>
                     <div class='row gap-1'>
                         <p>USERNAME: </p>
                         <p class='text-lightcoral' id='username'>".$_SESSION['username']."</p>
-                        <button class='btn btn-outline row all-center gap-025' onclick = \"cerrarSesion()\">LOGOUT</button>
+                    </div>    
+                    <div class='row gap-1'>
+                        <p>RECORD EASY: </p>
+                        <p class='text-lightcoral' id='records'>".$_SESSION['records']['easy']."</p>
                     </div>
-                </div>";
+                    <div class='row gap-1'>
+                        <p>RECORD MEDIUM: </p>
+                        <p class='text-lightcoral' id='records'>".$_SESSION['records']['medium']."</p>
+                    </div>
+                    <div class='row gap-1'>
+                        <p>RECORD HARD: </p>
+                        <p class='text-lightcoral' id='records'>".$_SESSION['records']['hard']."</p>
+                    </div>
+                </div>
+                <button class='btn btn-outline row all-center gap-025' onclick = \"cerrarSesion()\">LOGOUT</button>";
             }
 
             ?>

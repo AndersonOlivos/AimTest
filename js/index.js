@@ -231,9 +231,14 @@ function actualizarRanking(boton){
 
             lista.empty();
 
-            data.forEach((item, index) => {
-                lista.append(`<li>${item.username} - ${item.record} pts.</li>`);
-            });
+            if(Object.keys(data).length == 0){
+                lista.append(`<p class='text-lightcoral'>There's no record yet...</p>`);
+            } else {
+                data.forEach((item, index) => {
+                    lista.append(`<li>${item.username} - ${item.record} pts.</li>`);
+                });
+            }
+
         })
     }
 
